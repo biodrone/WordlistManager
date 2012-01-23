@@ -39,6 +39,7 @@ Partial Class Form1
         '
         'FileFind
         '
+        Me.FileFind.DefaultExt = "txt"
         Me.FileFind.FileName = "Wordlist"
         '
         'usrInputTxt
@@ -66,7 +67,7 @@ Partial Class Form1
         Me.Controls.Add(Me.usrInputTxt)
         Me.Controls.Add(Me.Deduplicate)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Wordlist Manager V0.0.2"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

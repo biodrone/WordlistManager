@@ -3,7 +3,9 @@ Imports System.IO
 
 Public Class Form1
     Dim Wordlist As String = "", test As String, wrdPath As String = "", newFile As String = ""
-    Dim DeDup As Boolean = False
+    Dim DeDup As Boolean = False, arr1(0 To 1) As String
+    Dim arrj As Integer = 0
+
     Private Sub Copy(sender As System.Object, e As System.EventArgs) Handles cmdCopy.Click
 
         If usrInputTxt.Text.Contains("\") Then
@@ -28,8 +30,10 @@ Public Class Form1
     End Sub
 
     Public Function FileLoc(ByRef Location)
+        FileFind.CheckPathExists = True
         FileFind.CheckFileExists = True
         FileFind.InitialDirectory = "%USERPROFILE%"
+
     End Function
 
     Public Sub wrdmanage(ByVal newFile As String, ByVal DeDup As Boolean)
@@ -37,39 +41,92 @@ Public Class Form1
         Dim Dup As New StreamReader(Wordlist)
         Dim arrFill As New StreamReader(Wordlist)
         Dim comWord As String = "", copWord As String = ""
-        Dim arri As Integer = 0
-
-        While arrFill.EndOfStream = False
-            arrFill.ReadLine()
-            arri = arri + 1
-        End While
-        Dim arr1(0 To arri - 1) As Array
+        Dim arri As Integer = 0, endOfarr As Integer = 0
 
         If DeDup = True Then
-            While Dup.EndOfStream = False
-                comWord = Dup.ReadLine
-                While sr.EndOfStream = False
-                    copWord = sr.ReadLine
-                    If comWord <> copWord Then
-                        'My.Computer.FileSystem.WriteAllText(newFile, copWord + vbCrLf, True)
+            FillArray(endOfarr, Wordlist)
+
+            Dim arr2(0 To 1) As String, arrk As Integer = 0
+            
+            For arri = 0 To endOfarr
+                'arr2(arrk) = arr1(arri)
+                For Me.arrj = 0 To endOfarr
+                    If arrj = arri Then
+                        arrj = arrj + 1
+                    ElseIf arrj = endOfarr Then
 
                     End If
-                End While
-                sr.Close()
-                sr = New StreamReader(Wordlist)
+                    If arr1(arri) = arr1(arrj) Then
+                        'arrk = arrk + 1
+                        'arr2(arrk) = arr1(arrj)
+                        'ReDim Preserve arr2(0 To arrk + 1)
+                        arr1(arrj) = ""
+                    End If
 
-            End While
+                Next
+
+            Next
+
+            'For arri = 0 To endOfarr
+            '    arr2(arrk) = arr1(arri)
+            '    For arrj = 1 To endOfarr
+            '        'For arrk = 1 To endOfarr
+            '        If arr1(arri) <> arr1(arrj) Then
+            '            arrk = arrk + 1
+            '            arr2(arrk) = arr1(arrj)
+            '            ReDim Preserve arr2(arrk + 1)
+            '        Else
+            '            Console.WriteLine("Duplicate: " + arr1(arrj))
+            '        End If
+            '        'Next
+            '    Next
+            '    arrk = 0
+            'Next
+
+
 
         Else
-            While sr.EndOfStream = False
-                My.Computer.FileSystem.WriteAllText(newFile, sr.ReadLine + vbCrLf, True)
-            End While
+
+            '    While Dup.EndOfStream = False
+            '        comWord = Dup.ReadLine
+            '        While sr.EndOfStream = False
+            '            copWord = sr.ReadLine
+            '            If comWord <> copWord Then
+            '                'My.Computer.FileSystem.WriteAllText(newFile, copWord + vbCrLf, True)
+            '            End If
+            '        End While
+            '        sr.Close()
+            '        sr = New StreamReader(Wordlist)
+            '    End While
+            '    While sr.EndOfStream = False
+            '        My.Computer.FileSystem.WriteAllText(newFile, sr.ReadLine + vbCrLf, True)
+            '    End While
         End If
         MsgBox("done!")
     End Sub
+
+    Public Function FillArray(ByRef ender As Integer, ByVal filePath As String)
+        Dim reader As New StreamReader(filePath)
+        While reader.EndOfStream = False
+            reader.ReadLine()
+            ender = ender + 1
+        End While
+
+        reader.Close()
+        reader = New StreamReader(Wordlist)
+
+        ender = ender - 1
+        ReDim arr1(0 To ender)
+        For arri = 0 To ender
+            arr1(arri) = reader.ReadLine
+        Next
+
+        Return ender
+    End Function
 
     Private Sub Deduplicate_Click(sender As System.Object, e As System.EventArgs) Handles Deduplicate.Click
         DeDup = True
         Copy(sender, e)
     End Sub
+
 End Class
