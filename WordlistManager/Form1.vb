@@ -7,7 +7,7 @@ Public Class Form1
     Dim arrj As Integer = 0
 
     Private Sub Copy(sender As System.Object, e As System.EventArgs) Handles cmdCopy.Click
-
+        'E:\Wordlists\Test.txt
         If usrInputTxt.Text.Contains("\") Then
             If usrInputTxt.Text.Length > 1 Then
                 Wordlist = usrInputTxt.Text
@@ -22,10 +22,17 @@ Public Class Form1
 
         newFile = Wordlist.Substring(0, Wordlist.LastIndexOf(".")) + "_NoDups.txt"
         If DeDup = True Then
-            wrdmanage(newFile, True)
+            wrdmanage(True)
         Else
-            wrdmanage(newFile, False)
+            wrdmanage(False)
         End If
+
+        Dim endOfarr As Integer = arr1.Length - 1
+        For arri = 0 To endOfarr
+            If arr1(arri) <> "" Then
+                My.Computer.FileSystem.WriteAllText(newFile, arr1(arri) + vbCrLf, True)
+            End If
+        Next
 
     End Sub
 
@@ -36,7 +43,7 @@ Public Class Form1
 
     End Function
 
-    Public Sub wrdmanage(ByVal newFile As String, ByVal DeDup As Boolean)
+    Public Sub wrdmanage(ByVal DeDup As Boolean)
         Dim sr As New StreamReader(Wordlist)
         Dim Dup As New StreamReader(Wordlist)
         Dim arrFill As New StreamReader(Wordlist)
@@ -47,14 +54,14 @@ Public Class Form1
             FillArray(endOfarr, Wordlist)
 
             Dim arr2(0 To 1) As String, arrk As Integer = 0
-            
+
             For arri = 0 To endOfarr
                 'arr2(arrk) = arr1(arri)
                 For Me.arrj = 0 To endOfarr
                     If arrj = arri Then
-                        arrj = arrj + 1
-                    ElseIf arrj = endOfarr Then
-
+                        If arrj <> endOfarr Then
+                            arrj = arrj + 1
+                        End If
                     End If
                     If arr1(arri) = arr1(arrj) Then
                         'arrk = arrk + 1
@@ -62,9 +69,7 @@ Public Class Form1
                         'ReDim Preserve arr2(0 To arrk + 1)
                         arr1(arrj) = ""
                     End If
-
                 Next
-
             Next
 
             'For arri = 0 To endOfarr
