@@ -2,7 +2,7 @@
 Imports System.IO
 
 Public Class Form1
-    Dim Wordlist As String = "", test As String
+    Dim Wordlist As String = "", test As String, wrdPath As String = ""
     Private Sub SetUp(sender As System.Object, e As System.EventArgs) Handles Deduplicate.Click
         'FileLoc(Wordlist)
         FileFind.CheckFileExists = True
@@ -20,9 +20,9 @@ Public Class Form1
             Exit Sub
         End If
 
-        test = Wordlist.LastIndexOf("\")
+        wrdPath = Wordlist.Substring(0, Wordlist.LastIndexOf("\"))
 
-        remove()
+        remove(wrdPath)
 
     End Sub
 
@@ -30,7 +30,7 @@ Public Class Form1
 
     End Function
 
-    Public Sub remove()
+    Public Sub remove(ByVal wrdPath As String)
         Dim sr As New StreamReader(Wordlist)
 
 
