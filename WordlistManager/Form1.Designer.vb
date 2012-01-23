@@ -47,7 +47,6 @@ Partial Class Form1
         Me.usrInputTxt.Name = "usrInputTxt"
         Me.usrInputTxt.Size = New System.Drawing.Size(100, 20)
         Me.usrInputTxt.TabIndex = 1
-        Me.usrInputTxt.Text = "File Path"
         '
         'cmdCopy
         '

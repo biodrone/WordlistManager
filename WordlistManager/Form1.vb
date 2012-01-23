@@ -35,7 +35,15 @@ Public Class Form1
     Public Sub wrdmanage(ByVal newFile As String, ByVal DeDup As Boolean)
         Dim sr As New StreamReader(Wordlist)
         Dim Dup As New StreamReader(Wordlist)
+        Dim arrFill As New StreamReader(Wordlist)
         Dim comWord As String = "", copWord As String = ""
+        Dim arri As Integer = 0
+
+        While arrFill.EndOfStream = False
+            arrFill.ReadLine()
+            arri = arri + 1
+        End While
+        Dim arr1(0 To arri - 1) As Array
 
         If DeDup = True Then
             While Dup.EndOfStream = False
@@ -43,7 +51,8 @@ Public Class Form1
                 While sr.EndOfStream = False
                     copWord = sr.ReadLine
                     If comWord <> copWord Then
-                        My.Computer.FileSystem.WriteAllText(newFile, copWord + vbCrLf, True)
+                        'My.Computer.FileSystem.WriteAllText(newFile, copWord + vbCrLf, True)
+
                     End If
                 End While
                 sr.Close()
