@@ -3,8 +3,8 @@ Imports System.IO
 
 Public Class Form1
     Dim Wordlist As String = "", test As String, wrdPath As String = "", newFile As String = ""
-    Private Sub SetUp(sender As System.Object, e As System.EventArgs) Handles Deduplicate.Click
-        'FileLoc(Wordlist)
+    Dim DeDup As Boolean = False
+    Private Sub Copy(sender As System.Object, e As System.EventArgs) Handles cmdCopy.Click
         FileFind.CheckFileExists = True
         FileFind.InitialDirectory = "%USERPROFILE%"
 
@@ -21,8 +21,12 @@ Public Class Form1
         End If
 
         newFile = Wordlist.Substring(0, Wordlist.LastIndexOf(".")) + "_NoDups.txt"
+        If DeDup = True Then
+            Copy(newFile, True)
+        Else
+            Copy(newFile, False)
+        End If
 
-        remove(newFile)
 
     End Sub
 
@@ -30,7 +34,7 @@ Public Class Form1
 
     End Function
 
-    Public Sub remove(ByVal newFile As String)
+    Public Sub copy(ByVal newFile As String, ByVal DeDup As Boolean)
         Dim sr As New StreamReader(Wordlist)
 
         While sr.EndOfStream = False
@@ -38,5 +42,10 @@ Public Class Form1
         End While
 
         MsgBox("done!")
+    End Sub
+
+    Private Sub Deduplicate_Click(sender As System.Object, e As System.EventArgs) Handles Deduplicate.Click
+        DeDup = True
+        Copy(sender, e)
     End Sub
 End Class

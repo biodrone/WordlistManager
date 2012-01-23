@@ -25,11 +25,12 @@ Partial Class Form1
         Me.Deduplicate = New System.Windows.Forms.Button()
         Me.FileFind = New System.Windows.Forms.OpenFileDialog()
         Me.usrInputTxt = New System.Windows.Forms.TextBox()
+        Me.cmdCopy = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Deduplicate
         '
-        Me.Deduplicate.Location = New System.Drawing.Point(156, 48)
+        Me.Deduplicate.Location = New System.Drawing.Point(156, 29)
         Me.Deduplicate.Name = "Deduplicate"
         Me.Deduplicate.Size = New System.Drawing.Size(78, 23)
         Me.Deduplicate.TabIndex = 0
@@ -48,11 +49,21 @@ Partial Class Form1
         Me.usrInputTxt.TabIndex = 1
         Me.usrInputTxt.Text = "File Path"
         '
+        'cmdCopy
+        '
+        Me.cmdCopy.Location = New System.Drawing.Point(157, 59)
+        Me.cmdCopy.Name = "cmdCopy"
+        Me.cmdCopy.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCopy.TabIndex = 2
+        Me.cmdCopy.Text = "Copy"
+        Me.cmdCopy.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.Controls.Add(Me.cmdCopy)
         Me.Controls.Add(Me.usrInputTxt)
         Me.Controls.Add(Me.Deduplicate)
         Me.Name = "Form1"
@@ -64,5 +75,6 @@ Partial Class Form1
     Friend WithEvents Deduplicate As System.Windows.Forms.Button
     Friend WithEvents FileFind As System.Windows.Forms.OpenFileDialog
     Friend WithEvents usrInputTxt As System.Windows.Forms.TextBox
+    Friend WithEvents cmdCopy As System.Windows.Forms.Button
 
 End Class
