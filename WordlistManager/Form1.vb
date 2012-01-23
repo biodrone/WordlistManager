@@ -33,12 +33,12 @@ Public Class Form1
         For arri = 0 To endOfarr
             If arr1(arri) <> "" Then
                 My.Computer.FileSystem.WriteAllText(newFile, arr1(arri) + vbCrLf, True)
-
             End If
             ProgB.PerformStep()
         Next
         MsgBox("Action Complete")
         ProgB.Value = 0
+        DeDup = False
     End Sub
 
     Public Function FileLoc(ByRef Location)
@@ -57,11 +57,8 @@ Public Class Form1
 
         If DeDup = True Then
             FillArray(endOfarr, Wordlist)
-
             Dim arr2(0 To 1) As String, arrk As Integer = 0
-
             For arri = 0 To endOfarr
-
                 For Me.arrj = 0 To endOfarr
                     If arrj = arri Then
                         If arrj <> endOfarr Then
