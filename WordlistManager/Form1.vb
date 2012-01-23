@@ -20,9 +20,9 @@ Public Class Form1
             Exit Sub
         End If
 
-        wrdPath = Wordlist.Substring(0, Wordlist.LastIndexOf("\"))
+        'wrdPath = 
 
-        remove(wrdPath)
+        remove()
 
     End Sub
 
@@ -30,9 +30,10 @@ Public Class Form1
 
     End Function
 
-    Public Sub remove(ByVal wrdPath As String)
+    Public Sub remove()
         Dim sr As New StreamReader(Wordlist)
-
+        Dim newFile As String = Wordlist.Substring(0, Wordlist.LastIndexOf(".")) + "_NoDups"
+        File.CreateText(newFile)
 
 
     End Sub
