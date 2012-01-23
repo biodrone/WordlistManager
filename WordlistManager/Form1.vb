@@ -32,14 +32,11 @@ Public Class Form1
 
     Public Sub remove(ByVal newFile As String)
         Dim sr As New StreamReader(Wordlist)
-        'Dim sw As System.IO.StreamWriter
-        'sw = My.Computer.FileSystem.OpenTextFileWriter(newFile, False)
-        'Dim word As String = ""
 
         While sr.EndOfStream = False
             My.Computer.FileSystem.WriteAllText(newFile, sr.ReadLine + vbCrLf, True)
         End While
 
-        'MsgBox("done!")
+        MsgBox("done!")
     End Sub
 End Class
