@@ -26,6 +26,7 @@ Partial Class Form1
         Me.FileFind = New System.Windows.Forms.OpenFileDialog()
         Me.usrInputTxt = New System.Windows.Forms.TextBox()
         Me.cmdCopy = New System.Windows.Forms.Button()
+        Me.ProgB = New System.Windows.Forms.ProgressBar()
         Me.SuspendLayout()
         '
         'Deduplicate
@@ -44,9 +45,9 @@ Partial Class Form1
         '
         'usrInputTxt
         '
-        Me.usrInputTxt.Location = New System.Drawing.Point(50, 50)
+        Me.usrInputTxt.Location = New System.Drawing.Point(12, 50)
         Me.usrInputTxt.Name = "usrInputTxt"
-        Me.usrInputTxt.Size = New System.Drawing.Size(100, 20)
+        Me.usrInputTxt.Size = New System.Drawing.Size(138, 20)
         Me.usrInputTxt.TabIndex = 1
         '
         'cmdCopy
@@ -58,11 +59,19 @@ Partial Class Form1
         Me.cmdCopy.Text = "Copy"
         Me.cmdCopy.UseVisualStyleBackColor = True
         '
+        'ProgB
+        '
+        Me.ProgB.Location = New System.Drawing.Point(12, 104)
+        Me.ProgB.Name = "ProgB"
+        Me.ProgB.Size = New System.Drawing.Size(260, 23)
+        Me.ProgB.TabIndex = 3
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.Controls.Add(Me.ProgB)
         Me.Controls.Add(Me.cmdCopy)
         Me.Controls.Add(Me.usrInputTxt)
         Me.Controls.Add(Me.Deduplicate)
@@ -76,5 +85,6 @@ Partial Class Form1
     Friend WithEvents FileFind As System.Windows.Forms.OpenFileDialog
     Friend WithEvents usrInputTxt As System.Windows.Forms.TextBox
     Friend WithEvents cmdCopy As System.Windows.Forms.Button
+    Friend WithEvents ProgB As System.Windows.Forms.ProgressBar
 
 End Class

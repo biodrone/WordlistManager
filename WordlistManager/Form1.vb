@@ -7,7 +7,6 @@ Public Class Form1
     Dim arrj As Integer = 0
 
     Private Sub Copy(sender As System.Object, e As System.EventArgs) Handles cmdCopy.Click
-        'E:\Wordlists\Test.txt
         If usrInputTxt.Text.Contains("\") Then
             If usrInputTxt.Text.Length > 1 Then
                 Wordlist = usrInputTxt.Text
@@ -28,12 +27,18 @@ Public Class Form1
         End If
 
         Dim endOfarr As Integer = arr1.Length - 1
+        ProgB.Minimum = 0
+        ProgB.Maximum = endOfarr
+        ProgB.Step = 1
         For arri = 0 To endOfarr
             If arr1(arri) <> "" Then
                 My.Computer.FileSystem.WriteAllText(newFile, arr1(arri) + vbCrLf, True)
-            End If
-        Next
 
+            End If
+            ProgB.PerformStep()
+        Next
+        MsgBox("Action Complete")
+        ProgB.Value = 0
     End Sub
 
     Public Function FileLoc(ByRef Location)
@@ -56,7 +61,7 @@ Public Class Form1
             Dim arr2(0 To 1) As String, arrk As Integer = 0
 
             For arri = 0 To endOfarr
-                'arr2(arrk) = arr1(arri)
+
                 For Me.arrj = 0 To endOfarr
                     If arrj = arri Then
                         If arrj <> endOfarr Then
@@ -64,50 +69,14 @@ Public Class Form1
                         End If
                     End If
                     If arr1(arri) = arr1(arrj) Then
-                        'arrk = arrk + 1
-                        'arr2(arrk) = arr1(arrj)
-                        'ReDim Preserve arr2(0 To arrk + 1)
                         arr1(arrj) = ""
                     End If
                 Next
             Next
-
-            'For arri = 0 To endOfarr
-            '    arr2(arrk) = arr1(arri)
-            '    For arrj = 1 To endOfarr
-            '        'For arrk = 1 To endOfarr
-            '        If arr1(arri) <> arr1(arrj) Then
-            '            arrk = arrk + 1
-            '            arr2(arrk) = arr1(arrj)
-            '            ReDim Preserve arr2(arrk + 1)
-            '        Else
-            '            Console.WriteLine("Duplicate: " + arr1(arrj))
-            '        End If
-            '        'Next
-            '    Next
-            '    arrk = 0
-            'Next
-
-
-
         Else
-
-            '    While Dup.EndOfStream = False
-            '        comWord = Dup.ReadLine
-            '        While sr.EndOfStream = False
-            '            copWord = sr.ReadLine
-            '            If comWord <> copWord Then
-            '                'My.Computer.FileSystem.WriteAllText(newFile, copWord + vbCrLf, True)
-            '            End If
-            '        End While
-            '        sr.Close()
-            '        sr = New StreamReader(Wordlist)
-            '    End While
-            '    While sr.EndOfStream = False
-            '        My.Computer.FileSystem.WriteAllText(newFile, sr.ReadLine + vbCrLf, True)
-            '    End While
+            FillArray(endOfarr, Wordlist)
+            Exit Sub
         End If
-        MsgBox("done!")
     End Sub
 
     Public Function FillArray(ByRef ender As Integer, ByVal filePath As String)
@@ -133,5 +102,4 @@ Public Class Form1
         DeDup = True
         Copy(sender, e)
     End Sub
-
 End Class
