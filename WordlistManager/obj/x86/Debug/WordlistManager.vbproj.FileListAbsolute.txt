@@ -1,0 +1,13 @@
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\obj\x86\Debug\WordlistManager.Form1.resources
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\obj\x86\Debug\WordlistManager.Resources.resources
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\bin\Debug\WordlistManager.exe
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\bin\Debug\WordlistManager.pdb
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\bin\Debug\WordlistManager.xml
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\obj\x86\Debug\WordlistManager.exe
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\obj\x86\Debug\WordlistManager.xml
+C:\Users\Josh\AppData\Local\Temporary Projects\WordlistManager\obj\x86\Debug\WordlistManager.pdb
+E:\Coding\VB 2010\Projects\WordlistManager\WordlistManager\obj\x86\Debug\WordlistManager.xml
+E:\Coding\VB 2010\Projects\WordlistManager\WordlistManager\obj\x86\Debug\WordlistManager.pdb
