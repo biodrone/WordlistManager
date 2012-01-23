@@ -2,7 +2,7 @@
 Imports System.IO
 
 Public Class Form1
-    Dim Wordlist As String = "", test As String, wrdPath As String = ""
+    Dim Wordlist As String = "", test As String, wrdPath As String = "", newFile As String = ""
     Private Sub SetUp(sender As System.Object, e As System.EventArgs) Handles Deduplicate.Click
         'FileLoc(Wordlist)
         FileFind.CheckFileExists = True
@@ -20,9 +20,9 @@ Public Class Form1
             Exit Sub
         End If
 
-        'wrdPath = 
+        newFile = Wordlist.Substring(0, Wordlist.LastIndexOf(".")) + "_NoDups.txt"
 
-        remove()
+        remove(newFile)
 
     End Sub
 
@@ -30,11 +30,18 @@ Public Class Form1
 
     End Function
 
-    Public Sub remove()
+    Public Sub remove(ByVal newFile As String)
         Dim sr As New StreamReader(Wordlist)
-        Dim newFile As String = Wordlist.Substring(0, Wordlist.LastIndexOf(".")) + "_NoDups"
-        File.CreateText(newFile)
+        Dim sw As StreamWriter
+        sw = My.Computer.FileSystem.OpenTextFileWriter(newFile, False)
+        Dim word As String = ""
 
+        While sr.EndOfStream = False
+            word = sr.ReadLine
+            sw.WriteLine("@testing..>")
+            'sw.WriteLine(sr.ReadLine)
+        End While
 
+        MsgBox("done!")
     End Sub
 End Class
