@@ -27,6 +27,8 @@ Partial Class Form1
         Me.usrInputTxt = New System.Windows.Forms.TextBox()
         Me.cmdCopy = New System.Windows.Forms.Button()
         Me.ProgB = New System.Windows.Forms.ProgressBar()
+        Me.ArrayProg = New System.Windows.Forms.ProgressBar()
+        Me.cmdAlpha = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Deduplicate
@@ -61,16 +63,34 @@ Partial Class Form1
         '
         'ProgB
         '
-        Me.ProgB.Location = New System.Drawing.Point(12, 104)
+        Me.ProgB.Location = New System.Drawing.Point(12, 170)
         Me.ProgB.Name = "ProgB"
         Me.ProgB.Size = New System.Drawing.Size(260, 23)
         Me.ProgB.TabIndex = 3
+        '
+        'ArrayProg
+        '
+        Me.ArrayProg.Location = New System.Drawing.Point(13, 141)
+        Me.ArrayProg.Name = "ArrayProg"
+        Me.ArrayProg.Size = New System.Drawing.Size(259, 23)
+        Me.ArrayProg.TabIndex = 4
+        '
+        'cmdAlpha
+        '
+        Me.cmdAlpha.Location = New System.Drawing.Point(157, 89)
+        Me.cmdAlpha.Name = "cmdAlpha"
+        Me.cmdAlpha.Size = New System.Drawing.Size(75, 23)
+        Me.cmdAlpha.TabIndex = 5
+        Me.cmdAlpha.Text = "Alphabetize"
+        Me.cmdAlpha.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.Controls.Add(Me.cmdAlpha)
+        Me.Controls.Add(Me.ArrayProg)
         Me.Controls.Add(Me.ProgB)
         Me.Controls.Add(Me.cmdCopy)
         Me.Controls.Add(Me.usrInputTxt)
@@ -86,5 +106,7 @@ Partial Class Form1
     Friend WithEvents usrInputTxt As System.Windows.Forms.TextBox
     Friend WithEvents cmdCopy As System.Windows.Forms.Button
     Friend WithEvents ProgB As System.Windows.Forms.ProgressBar
+    Friend WithEvents ArrayProg As System.Windows.Forms.ProgressBar
+    Friend WithEvents cmdAlpha As System.Windows.Forms.Button
 
 End Class
